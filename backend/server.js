@@ -10,7 +10,12 @@ const userRoutes = require("./routes/userRoute");
 connectDB();
 
 const PORT = process.env.PORT || 4000;
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://127.0.0.1:5173", "https://hicc.harvestersibadan.com.ng"],
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
